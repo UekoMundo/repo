@@ -1,3 +1,5 @@
 .DS_Store
 gpg-private-key.asc
 .env
+__pycache__/
+*.py[cod]
