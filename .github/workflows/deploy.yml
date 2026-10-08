@@ -1,44 +1,65 @@
+name: Validate and deploy package repository
+
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
+
+# Public PR validation has neither secrets nor permission to request an OIDC token.
+permissions:
+  contents: read
 
 jobs:
-  deploy:
-    name: Upload to Amazon S3
+  validate:
+    name: Validate public package artifacts
     runs-on: ubuntu-latest
-    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
-    permissions:
-      id-token: write
-      contents: read
+    timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Test packaging and public-site staging
+        env:
+          PYTHONDONTWRITEBYTECODE: "1"
+        run: python3 -m unittest discover -s tests -v
+      - name: Validate committed public-site payload (no credentials or writes)
+        run: python3 scripts/stage-site.py
 
-      - name: Configure AWS credentials from Production account
-        uses: aws-actions/configure-aws-credentials@v4
+  deploy:
+    name: Upload to Amazon S3
+    needs: validate
+    # Guard the WHOLE job, including credential acquisition, not only the upload.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'UekoMundo/repo'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: package-site-production
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout exact validated commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Stage only committed public artifacts before obtaining credentials
+        run: python3 scripts/stage-site.py --output "$RUNNER_TEMP/public-site" --write
+      - name: Configure short-lived, main-only AWS credentials
+        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4
         with:
           role-to-assume: ${{ secrets.AWS_ASSUME_ROLE }}
           aws-region: ${{ vars.AWS_REGION }}
-
-      - name: Pre deployment cleanup
-        run: |
-          sh scripts/predeploy.sh
-
-      - name: "DRY RUN: Copy files to the production website with the AWS CLI"
-        if: github.ref != 'refs/heads/main'
-        run: |
-          aws s3 sync . s3://repo.vineelsai.com --dryrun
-
-      - name: Copy files to the production website with the AWS CLI
-        if: github.ref == 'refs/heads/main'
-        run: |
-          aws s3 sync . s3://repo.vineelsai.com
-
+          role-duration-seconds: 900
+          role-session-name: repo-site-${{ github.run_id }}
+          mask-aws-account-id: true
+          unset-current-credentials: true
+      - name: Copy public artifacts without deleting historical objects
+        run: aws s3 sync "$RUNNER_TEMP/public-site/" s3://repo.vineelsai.com/ --no-follow-symlinks --only-show-errors
       - name: Invalidate CloudFront cache
-        if: github.ref == 'refs/heads/main'
-        run: |
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+        env:
+          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+        run: aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths '/*' --query 'Invalidation.Id' --output text

@@ -122,8 +122,7 @@ The root manifest must exist before starting a container.
 The normal Linux Compose entrypoints now only invoke first-party packaging;
 they default to an offline plan and do not import GPG keys, disable HTTPS
 verification, scan/sign indexes, or deploy. Linux services no longer mount a
-private signing key or require `.env`; existing keys and production workflows
-are unchanged. The manifest bind mount fails if the source is missing instead
+private signing key or require `.env`; existing signing keys are unchanged. The manifest bind mount fails if the source is missing instead
 of creating a directory where the JSON file should be.
 
 ```sh
@@ -144,6 +143,49 @@ APT release metadata / Arch packages and databases with the proper keys. The
 existing explicit `scan` / `release` targets are publication-maintenance tools,
 not automatic packaging steps; review them before use. Never upload unsigned
 or stale metadata. No production/S3 operation is needed to validate this work.
+
+## Public CI and production deployment
+
+Pull requests run credential-free packaging/staging tests on GitHub-hosted runners.
+The entire **Upload to Amazon S3** job is limited to a validated `push` to
+`UekoMundo/repo`'s `main` branch. PRs do not acquire AWS credentials, request an
+OIDC token, upload to S3, or invalidate CloudFront. No `pull_request_target` or
+privileged follow-up workflow executes PR code.
+
+Production uses a dedicated, short-lived OIDC role. Its trust must match the
+repository's actual immutable-ID subject, ending in `:ref:refs/heads/main`, with
+`aud` exactly `sts.amazonaws.com`; repository-wide/organization-wide wildcard
+subjects and PR subjects are not allowed. The local AWS SSO `prod` profile is
+only an operator authentication method for configuring that role, never a CI
+credential source. Do not export or copy SSO keys/tokens into GitHub.
+
+The role permits listing this site's bucket, writing only the public site paths,
+and creating invalidations for this site's single CloudFront distribution. It
+has no object-deletion, IAM, unrelated-bucket or unrelated-distribution access.
+The S3 bucket remains private with all four Public Access Block settings enabled;
+public delivery is through its existing CloudFront origin access control, not
+public bucket ACLs or a public bucket policy.
+
+Deployment no longer cleans then syncs the entire checkout. `scripts/stage-site.py`
+plans an allowlisted payload from immutable **committed Git blobs** by default:
+
+```sh
+python3 scripts/stage-site.py
+# Explicit staging into a NEW directory outside this checkout, still no AWS call:
+python3 scripts/stage-site.py --output /tmp/package-site --write
+```
+
+Only `releases.json`, public F-Droid indexes/APKs/icons, Linux index pages/public
+GPG keys, APT metadata/pools, and Arch packages/databases/signatures are selected.
+Source, build/staging outputs, tests, Git metadata, local/untracked/modified files,
+F-Droid build recipes, credentials and arbitrary root files are not copied.
+Arch database aliases are materialized from their exact committed sibling
+compressed database/signature; filesystem symlinks are never followed. Other
+public-path symlinks fail closed. Existing signed bytes are not regenerated.
+The AWS CLI syncs only that staged directory without `--delete` or public ACLs,
+so historical objects outside the current payload are retained. Production
+credentials are acquired only after staging succeeds. Workflow actions are
+pinned to full commit SHAs and checkout does not persist its GitHub token.
 
 ## Offline tests
 
