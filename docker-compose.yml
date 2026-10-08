@@ -12,9 +12,16 @@ services:
     platform: linux/amd64
     volumes:
       - ./linux/debian:/home/build/repo
-      - ./gpg-private-key.asc:/home/build/gpg-private-key.asc
-    env_file:
-      - .env
+      - ./scripts:/opt/release-repo/scripts:ro
+      - type: bind
+        source: ./releases.json
+        target: /opt/release-repo/releases.json
+        read_only: true
+        bind:
+          create_host_path: false
+    environment:
+      PACKAGE_TOOLS: /opt/release-repo/scripts/package-tools.py
+      RELEASE_MANIFEST: /opt/release-repo/releases.json
     command: bash entrypoint.sh
 
   ubuntu:
@@ -23,9 +30,16 @@ services:
     platform: linux/amd64
     volumes:
       - ./linux/ubuntu:/home/build/repo
-      - ./gpg-private-key.asc:/home/build/gpg-private-key.asc
-    env_file:
-      - .env
+      - ./scripts:/opt/release-repo/scripts:ro
+      - type: bind
+        source: ./releases.json
+        target: /opt/release-repo/releases.json
+        read_only: true
+        bind:
+          create_host_path: false
+    environment:
+      PACKAGE_TOOLS: /opt/release-repo/scripts/package-tools.py
+      RELEASE_MANIFEST: /opt/release-repo/releases.json
     command: bash entrypoint.sh
 
   arch:
@@ -34,7 +48,15 @@ services:
     platform: linux/amd64
     volumes:
       - ./linux/arch:/home/build/repo
-      - ./gpg-private-key.asc:/home/build/gpg-private-key.asc
-    env_file:
-      - .env
+      - ./scripts:/opt/release-repo/scripts:ro
+      - type: bind
+        source: ./releases.json
+        target: /opt/release-repo/releases.json
+        read_only: true
+        bind:
+          create_host_path: false
+      - ./linux/arch/templates:/opt/release-repo/linux/arch/templates:ro
+    environment:
+      PACKAGE_TOOLS: /opt/release-repo/scripts/package-tools.py
+      RELEASE_MANIFEST: /opt/release-repo/releases.json
     command: bash entrypoint.sh

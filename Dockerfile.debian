@@ -2,7 +2,7 @@ FROM vineelsai/debian
 
 RUN apt update
 RUN apt upgrade -y
-RUN apt install -y golang git ninja-build gettext cmake unzip curl wget file dpkg-dev libxinerama-dev fontconfig libxft-dev cargo musl-tools libssl-dev
+RUN apt install -y python3 golang git ninja-build gettext cmake unzip curl wget file dpkg-dev libxinerama-dev fontconfig libxft-dev cargo musl-tools libssl-dev
 
 RUN wget -qO - 'https://proget.makedeb.org/debian-feeds/prebuilt-mpr.pub' | gpg --dearmor | tee /usr/share/keyrings/prebuilt-mpr-archive-keyring.gpg
 RUN echo "deb [signed-by=/usr/share/keyrings/prebuilt-mpr-archive-keyring.gpg] https://proget.makedeb.org prebuilt-mpr bookworm" | tee /etc/apt/sources.list.d/prebuilt-mpr.list

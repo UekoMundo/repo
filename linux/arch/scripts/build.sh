@@ -1,58 +1,30 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+set -euo pipefail
 
-CPU_ARCH=$(uname -m)
+DISTRO=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
+ROOT=$(cd "$DISTRO/../.." && pwd)
+HELPER=${PACKAGE_TOOLS:-"$ROOT/scripts/package-tools.py"}
 
-mkdir -p packages
-cd packages
+# Keep the unrelated AUR yay builder, but only on explicit opt-in. Its output
+# stays in staging; this script never copies into the signed repository pool.
+if [[ "${1:-}" == "--third-party" ]]; then
+    if [[ "$#" != 2 || "${2:-}" != "--build" ]]; then
+        echo "yay requires: --third-party --build" >&2
+        exit 1
+    fi
+    mkdir -p "$DISTRO/packages/yay"
+    cd "$DISTRO/packages/yay"
+    curl --fail --location --silent --show-error --max-time 60 -o PKGBUILD \
+        "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yay-bin"
+    sed -i \
+        -e 's|^pkgname=yay-bin$|pkgname=yay|' \
+        -e '/^conflicts=/a conflicts+=(yay-git yay-bin)' \
+        -e '/^package() {$/a\    rm -f ../${pkgname}_${pkgver}_$CARCH.tar.gz' PKGBUILD
+    makepkg --clean --sign
+    exit 0
+fi
 
-# build Checkout
-rm -rf pkgbuild.checkout
-git clone https://github.com/VSPKG/pkgbuild.checkout.git
-cd pkgbuild.checkout
-makepkg --clean --force --sign
-cp *.pkg.tar.* ../../${CPU_ARCH}/
-cp *.pkg.tar.*.sig ../../${CPU_ARCH}/
-cd ..
-
-# build RCE
-rm -rf pkgbuild.rce
-git clone https://github.com/VSPKG/pkgbuild.rce.git
-cd pkgbuild.rce
-makepkg --clean --force --sign
-cp *.pkg.tar.* ../../${CPU_ARCH}/
-cp *.pkg.tar.*.sig ../../${CPU_ARCH}/
-cd ..
-
-# build VMN
-rm -rf pkgbuild.vmn
-git clone https://github.com/VSPKG/pkgbuild.vmn.git
-cd pkgbuild.vmn
-makepkg --clean --force --sign
-cp *.pkg.tar.* ../../${CPU_ARCH}/
-cp *.pkg.tar.*.sig ../../${CPU_ARCH}/
-cd ..
-
-# build VMP
-rm -rf pkgbuild.vmp
-git clone https://github.com/VSPKG/pkgbuild.vmp.git
-cd pkgbuild.vmp
-makepkg --clean --force --sign
-cp *.pkg.tar.* ../../${CPU_ARCH}/
-cp *.pkg.tar.*.sig ../../${CPU_ARCH}/
-cd ..
-
-# build yay
-mkdir -p yay
-cd yay
-rm -rf pkg src yay
-curl -Lsm 10 -o PKGBUILD "https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=yay-bin" || exit 1
-sed -i PKGBUILD \
-    -e 's|^pkgname=yay-bin$|pkgname=yay|' \
-    -e '/^conflicts=/a \conflicts+=(yay-git yay-bin)' \
-    -e '/^package() {$/a \  rm -f ../${pkgname}_${pkgver}_$CARCH.tar.gz'
-makepkg --clean --force --sign
-cp *.pkg.tar.* ../../${CPU_ARCH}/
-cp *.pkg.tar.*.sig ../../${CPU_ARCH}/
-cd ..
-rm -rf yay
+for package in ${PACKAGES:-checkout rce vmn vmp}; do
+    python3 "$HELPER" --package "$package" --format arch \
+        --output "$DISTRO/packages/staged" "$@"
+done
