@@ -2,6 +2,7 @@
 
 PACKAGES ?= checkout rce vmn vmp
 PACKAGE_ARGS ?=
+RELEASE_ARGS ?=
 
 # Default does not sign or regenerate the repository database.
 all: build
@@ -13,7 +14,7 @@ third-party:
 	bash scripts/build.sh --third-party --build
 
 release:
-	bash scripts/release.sh
+	bash scripts/release.sh $(RELEASE_ARGS)
 
 clean:
 	rm -rf packages

@@ -141,7 +141,14 @@ authorized maintainer must inspect it, deliberately add the new version without
 replacing historical artifacts, regenerate repository metadata, and sign the
 APT release metadata / Arch packages and databases with the proper keys. The
 existing explicit `scan` / `release` targets are publication-maintenance tools,
-not automatic packaging steps; review them before use. Never upload unsigned
+not automatic packaging steps; review them before use. The APT scanner retains all package versions and generates both `amd64` and
+`arm64` indexes. Its Release generator records index paths relative to
+`dists/stable` and excludes `Release`, `Release.gpg`, and `InRelease` from
+checksums, avoiding recursive/stale signature hashes. Arch database updates
+preserve historical package files and reject downgrades; `make -C linux/arch
+release` now previews the command. Use `RELEASE_ARGS=--write` only in the
+signing environment after inspecting the staged packages (and `CPU_ARCH` to
+select `x86_64` or `aarch64`). Never upload unsigned
 or stale metadata. No production/S3 operation is needed to validate this work.
 
 ## Public CI and production deployment

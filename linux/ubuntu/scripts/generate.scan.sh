@@ -1,7 +1,10 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
-CPU_ARCH=$(dpkg --print-architecture)
-
-dpkg-scanpackages --arch ${CPU_ARCH} pool/ >dists/stable/main/binary-${CPU_ARCH}/Packages
-cat dists/stable/main/binary-${CPU_ARCH}/Packages | gzip -9 >dists/stable/main/binary-${CPU_ARCH}/Packages.gz
+# Retain every historical package version and index both published architectures.
+for arch in amd64 arm64; do
+    index="dists/stable/main/binary-${arch}"
+    mkdir -p "$index"
+    dpkg-scanpackages --multiversion --arch "$arch" pool/ > "$index/Packages"
+    gzip -n -9 < "$index/Packages" > "$index/Packages.gz"
+done
