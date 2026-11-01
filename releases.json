@@ -93,6 +93,88 @@
               }
             }
           ]
+        },
+        {
+          "version": "1.0.0",
+          "tag": "checkout-v1.0.0",
+          "sourceSha": "4e4cee4605901f813586d315b25846a4f9c0bb7b",
+          "sourceRepository": "UekoMundo/Kenkon",
+          "sourcePath": "tools/checkout",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "checkout-linux-aarch64.tar.gz",
+              "sha256": "9ac23f68b72889aa746ab84e12f4bfb2aa39fe337757db0a311371152c09b295",
+              "size": 2208170,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/checkout-v1.0.0/checkout-linux-aarch64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/checkout-v1.0.0/checkout-linux-aarch64.tar.gz"
+              }
+            },
+            {
+              "name": "checkout-linux-x86_64.tar.gz",
+              "sha256": "0ee5035a8ec2f9720dab3e896cc67253589533077db3bea2131f8603c7841790",
+              "size": 2388113,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/checkout-v1.0.0/checkout-linux-x86_64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/checkout-v1.0.0/checkout-linux-x86_64.tar.gz"
+              }
+            },
+            {
+              "name": "checkout-macos-aarch64.tar.gz",
+              "sha256": "ad3e7bccbec0773f77a19f0d6526120e06d3fa9cc848dac6d2bc6b7d688d4f87",
+              "size": 2147614,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/checkout-v1.0.0/checkout-macos-aarch64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/checkout-v1.0.0/checkout-macos-aarch64.tar.gz"
+              }
+            },
+            {
+              "name": "checkout-macos-x86_64.tar.gz",
+              "sha256": "4993cf5c150b1abcc6b6d7ae63e3e199bf94d8c9348bd01c78c1ec9128d29bc6",
+              "size": 2276355,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/checkout-v1.0.0/checkout-macos-x86_64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/checkout-v1.0.0/checkout-macos-x86_64.tar.gz"
+              }
+            },
+            {
+              "name": "checkout-windows-aarch64.zip",
+              "sha256": "44afc27a6e649a870c6c10ba1492502a2e2bded713ea48faea2e3e7016472a17",
+              "size": 2107759,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/checkout-v1.0.0/checkout-windows-aarch64.zip",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/checkout-v1.0.0/checkout-windows-aarch64.zip"
+              }
+            },
+            {
+              "name": "checkout-windows-x86_64.zip",
+              "sha256": "32eb6ea6c929a28e9204898c2d2cbd830c71a9a6c05b05137cbea252fd048c63",
+              "size": 2084621,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/checkout-v1.0.0/checkout-windows-x86_64.zip",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/checkout-v1.0.0/checkout-windows-x86_64.zip"
+              }
+            },
+            {
+              "name": "release-info.json",
+              "sha256": "2b27728c1c615a53cc46757a343f0ed849337f5009bc5a3f4ceca2da080b2c87",
+              "size": 3557,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/checkout-v1.0.0/release-info.json",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/checkout-v1.0.0/release-info.json"
+              }
+            },
+            {
+              "name": "SHA256SUMS",
+              "sha256": "d8181493779e1d4e3d77cd11d182d14ad4ee577d8e0d7758317a9bbac1526a06",
+              "size": 655,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/checkout-v1.0.0/SHA256SUMS",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/checkout-v1.0.0/SHA256SUMS"
+              }
+            }
+          ]
         }
       ]
     },
@@ -516,6 +598,79 @@
               }
             }
           ]
+        },
+        {
+          "version": "2.0.0",
+          "tag": "rce-v2.0.0",
+          "sourceSha": "4e4cee4605901f813586d315b25846a4f9c0bb7b",
+          "sourceRepository": "UekoMundo/Kenkon",
+          "sourcePath": "tools/rce",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "rce-linux-aarch64.tar.gz",
+              "sha256": "b8e842dfb44cf98089ecd85c817476b5b97fe616ec79afba4287412402d66565",
+              "size": 4452625,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/rce-v2.0.0/rce-linux-aarch64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/rce-v2.0.0/rce-linux-aarch64.tar.gz"
+              }
+            },
+            {
+              "name": "rce-linux-x86_64.tar.gz",
+              "sha256": "a1b2a0e34d168611c4b21187b44ad9207c7bffc1487ba31e0237a6ab104e55c6",
+              "size": 4711826,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/rce-v2.0.0/rce-linux-x86_64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/rce-v2.0.0/rce-linux-x86_64.tar.gz"
+              }
+            },
+            {
+              "name": "rce-macos-aarch64.tar.gz",
+              "sha256": "b516c9ef5eaf46a5e9f69e5ff0da7d28e96ae5e07009b9cb5cf458db13e2d792",
+              "size": 4344883,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/rce-v2.0.0/rce-macos-aarch64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/rce-v2.0.0/rce-macos-aarch64.tar.gz"
+              }
+            },
+            {
+              "name": "rce-macos-x86_64.tar.gz",
+              "sha256": "a2816686e1ce168380e0470647538af447a1c193f2e0b23a046af74461b280bd",
+              "size": 4558162,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/rce-v2.0.0/rce-macos-x86_64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/rce-v2.0.0/rce-macos-x86_64.tar.gz"
+              }
+            },
+            {
+              "name": "rce-windows-x86_64.zip",
+              "sha256": "dd9c4ba85fa4137bc80ff5c2b6daf5ead983b40f03824313f8f5750ca131d8b1",
+              "size": 4563092,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/rce-v2.0.0/rce-windows-x86_64.zip",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/rce-v2.0.0/rce-windows-x86_64.zip"
+              }
+            },
+            {
+              "name": "release-info.json",
+              "sha256": "acab687ff67cd4b6e569538f8601ccbb907c922e51c622e53545b5cf28d17db3",
+              "size": 2907,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/rce-v2.0.0/release-info.json",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/rce-v2.0.0/release-info.json"
+              }
+            },
+            {
+              "name": "SHA256SUMS",
+              "sha256": "6c8ef836a84600a492d58fc25addc87f2fffa6d2f2715af9f0f6174e4215dc0e",
+              "size": 535,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/rce-v2.0.0/SHA256SUMS",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/rce-v2.0.0/SHA256SUMS"
+              }
+            }
+          ]
         }
       ]
     },
@@ -523,7 +678,90 @@
       "name": "relay",
       "sourceRepository": "vineelsai26/Relay",
       "sourcePath": "tools/relay",
-      "releases": []
+      "releases": [
+        {
+          "version": "1.0.0",
+          "tag": "relay-v1.0.0",
+          "sourceSha": "4e4cee4605901f813586d315b25846a4f9c0bb7b",
+          "sourceRepository": "UekoMundo/Kenkon",
+          "sourcePath": "tools/relay",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "relay-linux-amd64.tar.gz",
+              "sha256": "cb7c1acec3641f64284e2ef1934ed0fe89c7de89b092af9918a61fd06f8c91bd",
+              "size": 2751330,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/relay-v1.0.0/relay-linux-amd64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/relay-v1.0.0/relay-linux-amd64.tar.gz"
+              }
+            },
+            {
+              "name": "relay-linux-arm64.tar.gz",
+              "sha256": "85b466a5a6e32f8e017af38607861955c4145ab32e5b4be0b1c23e7a767daa4e",
+              "size": 2647707,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/relay-v1.0.0/relay-linux-arm64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/relay-v1.0.0/relay-linux-arm64.tar.gz"
+              }
+            },
+            {
+              "name": "relay-macos-amd64.tar.gz",
+              "sha256": "add81faf2b2bd5b4305c04ff997e409e59ec5bc5e9bca1bfb74943b764709d26",
+              "size": 2644850,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/relay-v1.0.0/relay-macos-amd64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/relay-v1.0.0/relay-macos-amd64.tar.gz"
+              }
+            },
+            {
+              "name": "relay-macos-arm64.tar.gz",
+              "sha256": "1f81d6af086fe2ec3638e77532161180c07a2be100abaad0704486af020f269e",
+              "size": 2518057,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/relay-v1.0.0/relay-macos-arm64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/relay-v1.0.0/relay-macos-arm64.tar.gz"
+              }
+            },
+            {
+              "name": "relay-windows-aarch64.zip",
+              "sha256": "316524d503f83a8961da78e4d70c46246643c434981c4eda885bf9a4fd4e518c",
+              "size": 2733974,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/relay-v1.0.0/relay-windows-aarch64.zip",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/relay-v1.0.0/relay-windows-aarch64.zip"
+              }
+            },
+            {
+              "name": "relay-windows-x86_64.zip",
+              "sha256": "1d8dceb00a899734d3ea5bc2017dd4c48038e7836adf9a316b7606b3b318950d",
+              "size": 2866594,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/relay-v1.0.0/relay-windows-x86_64.zip",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/relay-v1.0.0/relay-windows-x86_64.zip"
+              }
+            },
+            {
+              "name": "release-info.json",
+              "sha256": "362589fe1521c46f8dbfd95bc4294ca2f88ebc78c55bea51379f37626aa4d510",
+              "size": 3491,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/relay-v1.0.0/release-info.json",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/relay-v1.0.0/release-info.json"
+              }
+            },
+            {
+              "name": "SHA256SUMS",
+              "sha256": "04032e9e25c90342a7a8dc596314c8ddeacdf971864ca9f8216ed54b9651f91a",
+              "size": 631,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/relay-v1.0.0/SHA256SUMS",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/relay-v1.0.0/SHA256SUMS"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "root-checker",
@@ -616,7 +854,90 @@
       "name": "vault-sync",
       "sourceRepository": "vineelsai26/vault-sync",
       "sourcePath": "tools/vault-sync",
-      "releases": []
+      "releases": [
+        {
+          "version": "0.1.0",
+          "tag": "vault-sync-v0.1.0",
+          "sourceSha": "4e4cee4605901f813586d315b25846a4f9c0bb7b",
+          "sourceRepository": "UekoMundo/Kenkon",
+          "sourcePath": "tools/vault-sync",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "release-info.json",
+              "sha256": "58712fb416789a56345947c38331f63d7ee1964c8b2ea001368168007b368b9a",
+              "size": 3591,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vault-sync-v0.1.0/release-info.json",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vault-sync-v0.1.0/release-info.json"
+              }
+            },
+            {
+              "name": "vault-sync-linux-amd64.tar.gz",
+              "sha256": "25b080c75e4d459bc3dfc9b5bee46d1f586d7c20d6465722a5408e08fcfdebf2",
+              "size": 12522659,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vault-sync-v0.1.0/vault-sync-linux-amd64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vault-sync-v0.1.0/vault-sync-linux-amd64.tar.gz"
+              }
+            },
+            {
+              "name": "vault-sync-linux-arm64.tar.gz",
+              "sha256": "a5af350dba41ef3c625db7258c3c4e1b48048ed0aa862021986ab365ed851049",
+              "size": 12534474,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vault-sync-v0.1.0/vault-sync-linux-arm64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vault-sync-v0.1.0/vault-sync-linux-arm64.tar.gz"
+              }
+            },
+            {
+              "name": "vault-sync-macos-amd64.tar.gz",
+              "sha256": "4dd1069fe981083470aca46ab7269f43a94e8917a325dba671a1492188280ed7",
+              "size": 10594792,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vault-sync-v0.1.0/vault-sync-macos-amd64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vault-sync-v0.1.0/vault-sync-macos-amd64.tar.gz"
+              }
+            },
+            {
+              "name": "vault-sync-macos-arm64.tar.gz",
+              "sha256": "76b289ae65417e0798efeef02f524441c8b41733bdd71772ebf6afe249ef5e7e",
+              "size": 9595717,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vault-sync-v0.1.0/vault-sync-macos-arm64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vault-sync-v0.1.0/vault-sync-macos-arm64.tar.gz"
+              }
+            },
+            {
+              "name": "vault-sync-windows-aarch64.zip",
+              "sha256": "9bf28f28a68ff78edd7fc4dac2faca1f8f8603d9f32a2bd2b9c80d6812eb4f86",
+              "size": 9482412,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vault-sync-v0.1.0/vault-sync-windows-aarch64.zip",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vault-sync-v0.1.0/vault-sync-windows-aarch64.zip"
+              }
+            },
+            {
+              "name": "vault-sync-windows-x86_64.zip",
+              "sha256": "66e0041541cd4e7f88fcaa2964b7d10735702996ad12a38e4f3b64e96dd359d3",
+              "size": 10133643,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vault-sync-v0.1.0/vault-sync-windows-x86_64.zip",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vault-sync-v0.1.0/vault-sync-windows-x86_64.zip"
+              }
+            },
+            {
+              "name": "SHA256SUMS",
+              "sha256": "9b45c13ec90a69a46a791ebfd79089c7766da1bfe4fcb9fae6dd72a25c9c278d",
+              "size": 661,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vault-sync-v0.1.0/SHA256SUMS",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vault-sync-v0.1.0/SHA256SUMS"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "vitals",
@@ -1454,6 +1775,88 @@
               }
             }
           ]
+        },
+        {
+          "version": "1.0.0",
+          "tag": "vmn-v1.0.0",
+          "sourceSha": "4e4cee4605901f813586d315b25846a4f9c0bb7b",
+          "sourceRepository": "UekoMundo/Kenkon",
+          "sourcePath": "tools/vmn",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "release-info.json",
+              "sha256": "cdffeded5b241a7b2dd77cbfffc67372a9d6fab8a6bc447e3b56d594d8f58fe0",
+              "size": 3457,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vmn-v1.0.0/release-info.json",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vmn-v1.0.0/release-info.json"
+              }
+            },
+            {
+              "name": "vmn-linux-aarch64.tar.gz",
+              "sha256": "bb087b55b98aba3abcff4cb61ea2535caa52a92f6bcb63663899f48b8df63e76",
+              "size": 3286894,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vmn-v1.0.0/vmn-linux-aarch64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vmn-v1.0.0/vmn-linux-aarch64.tar.gz"
+              }
+            },
+            {
+              "name": "vmn-linux-x86_64.tar.gz",
+              "sha256": "fda12c4b596c1eb8e2e05517480e91aecb2d837286a302c44d4d2e56920b1e96",
+              "size": 3500891,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vmn-v1.0.0/vmn-linux-x86_64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vmn-v1.0.0/vmn-linux-x86_64.tar.gz"
+              }
+            },
+            {
+              "name": "vmn-macos-aarch64.tar.gz",
+              "sha256": "269757af76465be46182396fcb245033a44383bca9962238c9f8c592db34989a",
+              "size": 3190088,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vmn-v1.0.0/vmn-macos-aarch64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vmn-v1.0.0/vmn-macos-aarch64.tar.gz"
+              }
+            },
+            {
+              "name": "vmn-macos-x86_64.tar.gz",
+              "sha256": "d45ae1d4d80f01be9e8accd8de0075137c96de5868f8c363c6fefcb5b28080d6",
+              "size": 3391831,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vmn-v1.0.0/vmn-macos-x86_64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vmn-v1.0.0/vmn-macos-x86_64.tar.gz"
+              }
+            },
+            {
+              "name": "vmn-windows-aarch64.zip",
+              "sha256": "01e752834efb528e210d4a5b79d1a9cfa1232b948edd52de3742f125ed46455e",
+              "size": 3265965,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vmn-v1.0.0/vmn-windows-aarch64.zip",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vmn-v1.0.0/vmn-windows-aarch64.zip"
+              }
+            },
+            {
+              "name": "vmn-windows-x86_64.zip",
+              "sha256": "3ccaa4b46cc3679b9a4998dc26fb1cba914c645369cff7070e1daa67a2dc723f",
+              "size": 3284925,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vmn-v1.0.0/vmn-windows-x86_64.zip",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vmn-v1.0.0/vmn-windows-x86_64.zip"
+              }
+            },
+            {
+              "name": "SHA256SUMS",
+              "sha256": "95b0ad43d183d6d4ba2b48281ff0cf9c2fa55a6340f74d0a206bf73d2b645712",
+              "size": 625,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vmn-v1.0.0/SHA256SUMS",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vmn-v1.0.0/SHA256SUMS"
+              }
+            }
+          ]
         }
       ]
     },
@@ -1536,6 +1939,79 @@
               "urls": {
                 "repo": "https://github.com/UekoMundo/repo/releases/download/vmp-v0.1.2/vmp-linux-x86_64.tar.gz",
                 "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vmp-v0.1.2/vmp-linux-x86_64.tar.gz"
+              }
+            }
+          ]
+        },
+        {
+          "version": "0.1.3",
+          "tag": "vmp-v0.1.3",
+          "sourceSha": "4e4cee4605901f813586d315b25846a4f9c0bb7b",
+          "sourceRepository": "UekoMundo/Kenkon",
+          "sourcePath": "tools/vmp",
+          "prerelease": false,
+          "assets": [
+            {
+              "name": "release-info.json",
+              "sha256": "b77f1f9fbddb17dbb6165fb3e9be766b5c3ad9cb0814a96bc37c3e951fe0c61c",
+              "size": 2907,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vmp-v0.1.3/release-info.json",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vmp-v0.1.3/release-info.json"
+              }
+            },
+            {
+              "name": "vmp-darwin-arm64.tar.gz",
+              "sha256": "df384973714d6b4be7d0771a7a37e908d5f94e115d4beec2952fc888438af7d1",
+              "size": 3755806,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vmp-v0.1.3/vmp-darwin-arm64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vmp-v0.1.3/vmp-darwin-arm64.tar.gz"
+              }
+            },
+            {
+              "name": "vmp-darwin-x86_64.tar.gz",
+              "sha256": "7c1fb4a1dd38978343f9a36ba2271470924db9b9184ae6abc413785057d0ff02",
+              "size": 3906494,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vmp-v0.1.3/vmp-darwin-x86_64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vmp-v0.1.3/vmp-darwin-x86_64.tar.gz"
+              }
+            },
+            {
+              "name": "vmp-linux-aarch64.tar.gz",
+              "sha256": "0eab441d11959895098f086a599c3312574b31380c01572df70bedb80f33957a",
+              "size": 4019902,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vmp-v0.1.3/vmp-linux-aarch64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vmp-v0.1.3/vmp-linux-aarch64.tar.gz"
+              }
+            },
+            {
+              "name": "vmp-linux-x86_64.tar.gz",
+              "sha256": "a3bed4df6931ddb46fc5d0a39d2baba510e8f051d323c55ec6d1d576d96dd0c0",
+              "size": 4083911,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vmp-v0.1.3/vmp-linux-x86_64.tar.gz",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vmp-v0.1.3/vmp-linux-x86_64.tar.gz"
+              }
+            },
+            {
+              "name": "vmp-windows-x86_64.zip",
+              "sha256": "7f6bb3520c2eb8c3881edd84a48dcb12ae4f37814324bb1d7403a62a3c5a35fa",
+              "size": 3244102,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vmp-v0.1.3/vmp-windows-x86_64.zip",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vmp-v0.1.3/vmp-windows-x86_64.zip"
+              }
+            },
+            {
+              "name": "SHA256SUMS",
+              "sha256": "4080dcc63a34ac38185fa9e8b8f4a7597007d70a432e7d68a2468bd52f35c31f",
+              "size": 535,
+              "urls": {
+                "repo": "https://github.com/UekoMundo/repo/releases/download/vmp-v0.1.3/SHA256SUMS",
+                "homebrewTap": "https://github.com/UekoMundo/homebrew-tap/releases/download/vmp-v0.1.3/SHA256SUMS"
               }
             }
           ]

@@ -24,7 +24,7 @@ if [[ "${1:-}" == "--third-party" ]]; then
     exit 0
 fi
 
-for package in ${PACKAGES:-checkout rce vmn vmp}; do
+for package in ${PACKAGES:-checkout rce vmn vmp relay vault-sync}; do
     python3 "$HELPER" --package "$package" --format arch \
         --output "$DISTRO/packages/staged" "$@"
 done

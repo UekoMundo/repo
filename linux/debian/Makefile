@@ -1,7 +1,7 @@
 .PHONY: all generate third-party scan release clean predeploy
 
 # Packaging is a dry-run unless PACKAGE_ARGS includes --build. Publication is separate.
-PACKAGES ?= checkout rce vmn vmp
+PACKAGES ?= checkout rce vmn vmp relay vault-sync
 PACKAGE_ARGS ?=
 
 all: generate
