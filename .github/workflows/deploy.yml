@@ -17,7 +17,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
       - name: Test packaging and public-site staging
@@ -42,14 +42,14 @@ jobs:
       id-token: write
     steps:
       - name: Checkout exact validated commit
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.sha }}
           persist-credentials: false
       - name: Stage only committed public artifacts before obtaining credentials
         run: python3 scripts/stage-site.py --output "$RUNNER_TEMP/public-site" --write
       - name: Configure short-lived, main-only AWS credentials
-        uses: aws-actions/configure-aws-credentials@7474bc4690e29a8392af63c5b98e7449536d5c3a # v4
+        uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
         with:
           role-to-assume: ${{ secrets.AWS_ASSUME_ROLE }}
           aws-region: ${{ vars.AWS_REGION }}
@@ -59,7 +59,11 @@ jobs:
           unset-current-credentials: true
       - name: Copy public artifacts without deleting historical objects
         run: aws s3 sync "$RUNNER_TEMP/public-site/" s3://repo.vineelsai.com/ --no-follow-symlinks --only-show-errors
-      - name: Invalidate CloudFront cache
+      - name: Invalidate serving CloudFront cache and wait for completion
         env:
           CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-        run: aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths '/*' --query 'Invalidation.Id' --output text
+        run: |
+          invalidation_id=$(aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths '/*' --query 'Invalidation.Id' --output text)
+          aws cloudfront wait invalidation-completed --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --id "$invalidation_id"
+      - name: Verify every live public artifact against the validated commit
+        run: python3 scripts/verify-deployment.py

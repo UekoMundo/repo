@@ -168,7 +168,7 @@ only an operator authentication method for configuring that role, never a CI
 credential source. Do not export or copy SSO keys/tokens into GitHub.
 
 The role permits listing this site's bucket, writing only the public site paths,
-and creating invalidations for this site's single CloudFront distribution. It
+and creating/reading invalidations for this site's single serving CloudFront distribution. It
 has no object-deletion, IAM, unrelated-bucket or unrelated-distribution access.
 The S3 bucket remains private with all four Public Access Block settings enabled;
 public delivery is through its existing CloudFront origin access control, not
@@ -194,6 +194,16 @@ The AWS CLI syncs only that staged directory without `--delete` or public ACLs,
 so historical objects outside the current payload are retained. Production
 credentials are acquired only after staging succeeds. Workflow actions are
 pinned to full commit SHAs and checkout does not persist its GitHub token.
+
+The `.com` package URLs redirect to `https://repo.vineelsai.dev`. The deployment
+secret `CLOUDFRONT_DISTRIBUTION_ID` must identify the serving `.dev` distribution,
+`E2Z7ZXX3ESFVL3`, rather than the legacy `.com` redirect distribution. The role's
+CloudFront policy permits only `CreateInvalidation` and `GetInvalidation` on that
+distribution. Deployment waits for cache invalidation to complete, then runs
+`python3 scripts/verify-deployment.py` to compare the SHA256 and size of every
+live public file with the committed payload. This read-only check also works
+locally. It follows redirects only between the known HTTPS package-site hosts
+and fails on stale metadata, missing packages, or unexpected bytes.
 
 ## Offline tests
 
