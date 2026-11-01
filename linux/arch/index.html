@@ -12,17 +12,19 @@
         <p>
             Add the following to <code>/etc/pacman.conf</code>:
         </p>
-        <code>
-            [vineelsai-arch-repo] <br>
+        <pre><code>
+            [vineelsai-arch-repo]
             Server = https://repo.vineelsai.com/linux/arch/$arch
-        </code>
+        </code></pre>
 
         <p>
             Then run:
         </p>
-        <code>
-            sudo pacman-key --lsign-key 4431E64723B4ADDE
-        </code>
+        <pre><code>
+            curl -fsSL https://repo.vineelsai.com/linux/debian/gpg | sudo pacman-key --add -
+            sudo pacman-key --lsign-key 9C3B5573B872CBDECE21747B4431E64723B4ADDE
+            sudo pacman -Syu vmn vmp checkout rce relay vault-sync
+        </code></pre>
     </body>
 
 </html>

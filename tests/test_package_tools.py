@@ -494,11 +494,11 @@ class CliAndPackagingTests(unittest.TestCase):
             result = subprocess.run(["make", "-C", str(ROOT / "linux" / distro), "generate",
                                      "PACKAGE_ARGS=--arch amd64"], env=env, capture_output=True, text=True)
             self.assertEqual(result.returncode, 0, result.stderr)
-            self.assertEqual(result.stdout.count('"mode": "dry-run"'), 4)
+            self.assertEqual(result.stdout.count('"mode": "dry-run"'), len(tools.PACKAGES))
         result = subprocess.run(["make", "-C", str(ROOT / "linux/arch"), "build",
                                  "PACKAGE_ARGS=--arch amd64"], env=env, capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stderr)
-        self.assertEqual(result.stdout.count('"mode": "dry-run"'), 4)
+        self.assertEqual(result.stdout.count('"mode": "dry-run"'), len(tools.PACKAGES))
         self.assertFalse((self.path / "output").exists())
 
 

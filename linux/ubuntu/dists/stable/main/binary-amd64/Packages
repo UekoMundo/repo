@@ -9,6 +9,19 @@ SHA1: 689cc232e5dcd682ac571a5fc66b257dbf771ba3
 SHA256: cc4b93ff01305d8bfeea1612e43486b7b70f42766f65d4bb54cdc2f5452f45de
 Description: A Program to checkout to Projects in different directories to your workspace
 
+Package: checkout
+Version: 1.0.0
+Architecture: amd64
+Maintainer: UekoMundo <mail@vineelsai.com>
+Filename: pool/main/checkout_1.0.0_amd64.deb
+Size: 1844106
+MD5sum: 329960a4c2724774430bb32156aef86c
+SHA1: 1951189190711f9cbf7a70a68bb5d955f2983dfd
+SHA256: 272fbdd1cb74b6376a9fc3ce0b3567b1cf14a8434bb3bbd60e78661abed9f15c
+Section: utils
+Priority: optional
+Description: checkout from a verified public UekoMundo release
+
 Package: eza
 Version: 0.19.0
 Architecture: amd64
@@ -49,6 +62,46 @@ SHA1: c2f7c20a0484c6f376d0b1c5ec068abe6a6856d0
 SHA256: 9cf845e94045d4e2d0531427d0ca2bf515c1450aa8c5e271f639a98c5d14f12b
 Description: A Program to manage Node.js versions
 
+Package: rce
+Version: 2.0.0
+Architecture: amd64
+Maintainer: UekoMundo <mail@vineelsai.com>
+Filename: pool/main/rce_2.0.0_amd64.deb
+Size: 3423314
+MD5sum: 3fe97bce4df85e6f39f23470951afb3d
+SHA1: 56659226b11bae0b6bddc49d6c8468c61ea2ccf8
+SHA256: 619283a35043a7dcae0a1c1112a081f3324eb7aa7b2dd408e773a2f6d2f57152
+Section: utils
+Priority: optional
+Description: rce from a verified public UekoMundo release
+
+Package: relay
+Version: 1.0.0
+Architecture: amd64
+Maintainer: UekoMundo <mail@vineelsai.com>
+Filename: pool/main/relay_1.0.0_amd64.deb
+Size: 2163256
+MD5sum: 3cec6e7d4071dffa6d3a03fdb659733a
+SHA1: fd49e8cad58a9a36f4e8a497e5add7181efa83e7
+SHA256: a1d409dd4252807a24a011f5b452eddd66e35ee4c032a58185e46f9950ecbe0a
+Section: utils
+Priority: optional
+Description: relay from a verified public UekoMundo release
+
+Package: vault-sync
+Version: 0.1.0
+Architecture: amd64
+Maintainer: UekoMundo <mail@vineelsai.com>
+Depends: libdbus-1-3
+Filename: pool/main/vault-sync_0.1.0_amd64.deb
+Size: 8683496
+MD5sum: ed55d86b3d0f5011e6a5a6391d5b141e
+SHA1: a2880f2f0394e9569929fbddf4cedc60d6b8996c
+SHA256: a1180219cd2b4d83e69766c8fede6aff612717e11aae75dd32fb895369aefffd
+Section: utils
+Priority: optional
+Description: vault-sync from a verified public UekoMundo release
+
 Package: vmn
 Version: 0.3.4
 Architecture: amd64
@@ -59,6 +112,19 @@ MD5sum: c2bf6b362aeb835dbb93c358cce1f84f
 SHA1: 206c6e802cd1607b12bce0ef55b12f4b4ac3548d
 SHA256: 27c7e2d7c24199db7fbd6c8937dbd64a419067a50e60e144354f092ba8a153f9
 Description: A Program to manage Node.js versions
+
+Package: vmn
+Version: 1.0.0
+Architecture: amd64
+Maintainer: UekoMundo <mail@vineelsai.com>
+Filename: pool/main/vmn_1.0.0_amd64.deb
+Size: 2719802
+MD5sum: cd85d5e2b0b00c129ab987ae5bccf180
+SHA1: ca6a513d57be3109954fceafaa1146e258e9a276
+SHA256: 172a24799a551884fcbc9da1e8adcfdd7d06ded1de03b7c1732ba108a49163b4
+Section: utils
+Priority: optional
+Description: vmn from a verified public UekoMundo release
 
 Package: vmp
 Version: 0.1.1
@@ -71,3 +137,15 @@ SHA1: 001d9f7ee485a6c64b86839ba533a7af6ad5adf5
 SHA256: d2c5f7abd8523d5e687920dc0ff63045c1603a7a0b67c1a678c2162578030cde
 Description: A Program to manage Python versions
 
+Package: vmp
+Version: 0.1.3
+Architecture: amd64
+Maintainer: UekoMundo <mail@vineelsai.com>
+Filename: pool/main/vmp_0.1.3_amd64.deb
+Size: 2980190
+MD5sum: 5720f16010e53c2a8e1139de828c755e
+SHA1: 5b70f9ce7204cdc51c1ab2119405a7d7397259e7
+SHA256: dd4a8846073af6d76d7b72e6686516d6ea58d62a83be3aa5e4c0c395fdbae851
+Section: utils
+Priority: optional
+Description: vmp from a verified public UekoMundo release

@@ -8,9 +8,10 @@ or compile the obsolete per-product repositories.
 A change in `UekoMundo/Kenkon` is **not** automatically available here: the source
 release workflow must publish and mirror a real release, and its actual archive
 checksum and size must be recorded in the manifest first. A package entry or a
-placeholder Homebrew formula is not evidence of an installable release. In
-particular, `relay` and `vault-sync` builders exist but fail clearly when no stable
-public Linux archive exists; neither is included in the default build list.
+placeholder Homebrew formula is not evidence of an installable release. All six
+first-party tools now have verified stable Linux archives for x86_64 and arm64
+and are included in the default build list. The manifest determines the current
+version for each package.
 
 ## Plan or stage a first-party package
 
@@ -82,7 +83,7 @@ package file or symlink is never overwritten.
 ## Linux wrappers and Makefiles
 
 ```sh
-# These default to dry-run and include checkout, rce, vmn, vmp.
+# These default to dry-run and include all six first-party tools.
 make -C linux/debian generate
 make -C linux/ubuntu generate
 make -C linux/arch build
@@ -91,7 +92,7 @@ make -C linux/arch build
 make -C linux/debian generate PACKAGES='vmn vmp' PACKAGE_ARGS='--arch amd64 --build'
 make -C linux/arch build PACKAGES='checkout vmn' PACKAGE_ARGS='--arch aarch64 --build'
 
-# New tools are opt-in and fail if their required public release is absent.
+# Individual wrappers also verify the selected public release.
 bash linux/ubuntu/scripts/relay.build.sh --arch amd64
 bash linux/debian/scripts/vault-sync.build.sh --arch arm64
 ```
@@ -141,7 +142,14 @@ authorized maintainer must inspect it, deliberately add the new version without
 replacing historical artifacts, regenerate repository metadata, and sign the
 APT release metadata / Arch packages and databases with the proper keys. The
 existing explicit `scan` / `release` targets are publication-maintenance tools,
-not automatic packaging steps; review them before use. Never upload unsigned
+not automatic packaging steps; review them before use. The APT scanner retains all package versions and generates both `amd64` and
+`arm64` indexes. Its Release generator records index paths relative to
+`dists/stable` and excludes `Release`, `Release.gpg`, and `InRelease` from
+checksums, avoiding recursive/stale signature hashes. Arch database updates
+preserve historical package files and reject downgrades; `make -C linux/arch
+release` now previews the command. Use `RELEASE_ARGS=--write` only in the
+signing environment after inspecting the staged packages (and `CPU_ARCH` to
+select `x86_64` or `aarch64`). Never upload unsigned
 or stale metadata. No production/S3 operation is needed to validate this work.
 
 ## Public CI and production deployment

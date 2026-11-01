@@ -3,27 +3,27 @@ Label: Vineel Sai
 Suite: stable
 Codename: stable
 Version: 1.0
-Architectures: amd64, arm64
+Architectures: amd64 arm64
 Components: main
 Description: A software repository by Vineel Sai
-Date: Fri, 16 Aug 2024 17:05:45 +0000
+Date: Sun, 01 Nov 2026 13:04:43 +0000
 MD5Sum:
-  55840d5a55d69bbe2893fd56e2c25508 232 Release
-  814455361dbe3cf8bdb3d0073e231771 862 Release.gpg
-  158ba60ddbd31508364fdc6f8408cffc 1057 main/binary-amd64/Packages.gz
-  04a907f277b8c30da3766600ad46577f 2344 main/binary-amd64/Packages
+  26a5801b211e896f3975eaf04c38ad26 4800 main/binary-amd64/Packages
+  41223dd645acb2ad4dfff9aa62a33052 1794 main/binary-amd64/Packages.gz
+  006b7c3bad9ef80e4c6ddea1114b6057 2456 main/binary-arm64/Packages
+  ea6eeb05e9ceec31a2dbfe34e4c7d4f6 911 main/binary-arm64/Packages.gz
 SHA1:
-  c2172b4280cc0171d919a775afb7dece4c86820f 473 Release
-  dae639f0da02fa5b30d1e3ca16c01f6ef567a4b9 862 Release.gpg
-  4fcdfb28e95ed36c4fb5d23f771eac8fbaf3f37f 1057 main/binary-amd64/Packages.gz
-  cd3c980f25adc9cec36b38da00225072cf5d6083 2344 main/binary-amd64/Packages
+  b3344e46dbb2d522a69d0e726372268463389eae 4800 main/binary-amd64/Packages
+  8c3346a739231817666e2599bf7750b876539367 1794 main/binary-amd64/Packages.gz
+  6c4ffb8b82e2c0aa77dd17dfb89f5dbb83c87b24 2456 main/binary-arm64/Packages
+  dd3bcea7d1dfaa7fd60e1aed78251269e269cf99 911 main/binary-arm64/Packages.gz
 SHA256:
-  af17688854fceca806a384be071f2d160b0407e1fc2671d2c4534aa7ad4f15a3 748 Release
-  bb18e107325a39c6e7bdbfdac52066aed1c7d17c3337c7f89aab06f9a6f1506d 862 Release.gpg
-  344748103c497c9351c0c4f231e0776718f8b982baa1c731b7f3b195177bd1bc 1057 main/binary-amd64/Packages.gz
-  2fbd49c31738b9424e8fa9f3b69a5ee70e36d9cfc12a1e2e34cd4506c0e253fb 2344 main/binary-amd64/Packages
+  8b8e7c78b02c16acd6c1e1eaa305060cf74932ba360862307ae821d9f6e54b56 4800 main/binary-amd64/Packages
+  3aefe8075069ea2a0eae1eb6931b685d3db4c4fc436c1e69140d2b5cf8f8acdd 1794 main/binary-amd64/Packages.gz
+  a25bfed925db7a4063d1defea714e124729dfdb3dc8dc6f5893bbdbc10311815 2456 main/binary-arm64/Packages
+  4318fa721f808277f5ecf5f2fc95a46bf4aa1a04bf71fefa3267b16ccb917dd1 911 main/binary-arm64/Packages.gz
 SHA512:
-  237fd376522ec1432be222b0ca909393da0bf769a0742f61fa64ffb5cfba8fe32b0be2588c3b1b9aca115c33f7338506597fb7f9cdd8b57ab1d318ed92f4ab2a 1119 Release
-  85378791d76d8a8007ede964420c83218d9f4ea659a3e6f309e15ccab53502727ad45bded9e9394cb05d7702818c7b897ea6adba494aab0a64fe9c014d7a6c61 862 Release.gpg
-  a406ba3e87322b7ae97cf9f31fce5ea58a9ad3f213c3290cd5255edd052e61dc0ace916512262c8ee68237c83470bff3035874616be6a4d40aa59040101a80c0 1057 main/binary-amd64/Packages.gz
-  9f12ee4d4ebebdde660cc46eca12dd21060a9dc293a5c23f923e30d5ed5c58df2d5b4a8b84ee5c804a3cd18945245d03a5d874183cba635ce843dd1f934523e1 2344 main/binary-amd64/Packages
+  df39f3133fe235e6a0cf793cd0c9d6e6366d351d90ad453b346f36fc7fcedbce4a6d3ddd5658f518848ed7351f58c31d447709ce2d9c6b8bdd216e8ca2592eaf 4800 main/binary-amd64/Packages
+  9165375d7e6bc3b6b0bfec547b53f52b7ea79464125c9ba78bf2d1b3e9a7a0f5621dc8ace6a29a7380897a5b70aaa5f21cb6976398ec8b5ad94af3a8f6422ea2 1794 main/binary-amd64/Packages.gz
+  59fd40398c33d85234b62e1d3d01fa623b48288e8c1ea99315258f09af320e3a40e47bafe315197f770ebf3cd026dbc09bc7f9e6d42e153926099c835f453c70 2456 main/binary-arm64/Packages
+  d0913eccc35e2f684a87dcab324b80827589159bcb6171903914339a46b001bc5e8729c7aec4d180c49f16114db2f2d22630ae01d895ca37d24c193020b95607 911 main/binary-arm64/Packages.gz

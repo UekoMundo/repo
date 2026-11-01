@@ -12,17 +12,18 @@
         <p>
             Run the following commands:
         </p>
-        <code>
+        <pre><code>
+            sudo install -d -m 0755 /etc/apt/keyrings
             curl -fsSL https://repo.vineelsai.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/vineelsai.gpg
-        </code>
+        </code></pre>
 
         <br><br>
 
-        <code>
-            echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/vineelsai.gpg]
-            https://repo.vineelsai.com/linux/ubuntu
-            stable main" | sudo tee /etc/apt/sources.list.d/vineelsai.list > /dev/null
-        </code>
+        <pre><code>
+            echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/vineelsai.gpg] https://repo.vineelsai.com/linux/ubuntu stable main" | sudo tee /etc/apt/sources.list.d/vineelsai.list > /dev/null
+        </code></pre>
+        <pre><code>sudo apt update
+sudo apt install vmn vmp checkout rce relay vault-sync</code></pre>
     </body>
 
 </html>

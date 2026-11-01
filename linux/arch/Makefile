@@ -1,7 +1,8 @@
 .PHONY: all build third-party release clean predeploy
 
-PACKAGES ?= checkout rce vmn vmp
+PACKAGES ?= checkout rce vmn vmp relay vault-sync
 PACKAGE_ARGS ?=
+RELEASE_ARGS ?=
 
 # Default does not sign or regenerate the repository database.
 all: build
@@ -13,7 +14,7 @@ third-party:
 	bash scripts/build.sh --third-party --build
 
 release:
-	bash scripts/release.sh
+	bash scripts/release.sh $(RELEASE_ARGS)
 
 clean:
 	rm -rf packages
